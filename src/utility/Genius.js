@@ -23,7 +23,7 @@ const Genius = {
             console.log(result);
             // * convert json response string to a JavaScript object
             const searchResults = JSON.parse(result)
-            return searchResults; 
+            return searchResults.response.hits; 
         } catch (error) {
             throw new Error('Error fetching search results')
         }
