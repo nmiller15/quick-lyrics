@@ -1,5 +1,3 @@
-import mockLyricData from "../mock/mockLyricData";
-
 const Genius = {
     async search(userInput) {
         // * Add the search term, userInput into the URL to fetch from the API
@@ -39,7 +37,25 @@ const Genius = {
     },
 
     async getLyrics(id) {
-        
+        const url = `https://genius-song-lyrics1.p.rapidapi.com/song/lyrics/?id=${id}&text_format=plain`;
+        const options = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key': '913baa68b2mshee77d60e97c2da8p182161jsne2d8a247ca25',
+                'X-RapidAPI-Host': 'genius-song-lyrics1.p.rapidapi.com'
+            }
+        };
+
+        try {
+            const response = await fetch(url, options);
+            const result = await response.text();
+            const resultObject = JSON.parse(result);
+            const lyrics = resultObject.lyrics.lyrics.body.plain;
+
+            return lyrics;
+        } catch (error) {
+            console.error(error);
+        }
     }
 }
 
