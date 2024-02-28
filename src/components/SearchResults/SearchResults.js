@@ -12,7 +12,7 @@ import Card from '../Card/Card';
     return (
       <div>
         {resultsArray.map((result, index) => {
-          return <Card index={index} result={result[1]} />
+          return <Card index={index} key={index} result={result[1]} />
         })}
       </div>
 	  );

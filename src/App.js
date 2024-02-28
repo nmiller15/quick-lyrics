@@ -44,9 +44,11 @@ function App() {
   return (
     <div>
       <Card />
-      <SearchResults results={searchResults}/>
       <SearchBar onSearch={handleSearch}/>
-      <DisplayLyrics lyrics={lyrics}/>
+      <div className="two-col">
+        <SearchResults className="left" results={searchResults}/>
+        <DisplayLyrics className="right" lyrics={lyrics}/>
+      </div>
     </div>
   )
   
