@@ -46,8 +46,12 @@ function App() {
       <Card />
       <SearchBar onSearch={handleSearch}/>
       <div className="two-col">
-        <SearchResults className="left" results={searchResults}/>
-        <DisplayLyrics className="right" lyrics={lyrics}/>
+        <div className="left">
+        <SearchResults results={searchResults}/>
+        </div>
+        <div className="right">
+          <DisplayLyrics lyrics={lyrics}/>
+        </div>
       </div>
     </div>
   )

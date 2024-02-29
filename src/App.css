@@ -1,12 +1,12 @@
 .two-col {
-    display: flex;
-    overflow: contain;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
 }
 
 .left {
-    display: inline-block;
+    grid-column: 0 1;
 }
 
 .right {
-    display: inline-block;
+    grid-column: 1 2;
 }

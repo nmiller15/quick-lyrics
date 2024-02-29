@@ -1,0 +1,31 @@
+:root {
+    --dark-olive: #303633;
+    --soft-purple: #888DA7;
+    --teal: #8BE8CB;
+    --darker-purple: #9C7A97;
+    --light-blue: #7EA2AA;
+  }
+
+.lyrics-container {
+    background-color: var(--light-blue);
+    padding: 20px;
+    box-shadow: -2px 2px 1px black;
+    border-radius: 15px;
+    margin: 0 15px;
+    width: 100%;
+}
+
+.lyrics-container h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.lyrics-container h3 {
+    font-size: 16px;
+    font-weight: light;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
