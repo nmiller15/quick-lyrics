@@ -1,11 +1,9 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, Suspense} from 'react';
 import Genius from './utility/Genius';
 import DisplayLyrics from './components/DisplayLyrics/DisplayLyrics';
 import SearchBar from './components/SearchBar/SearchBar';
 import SearchResults from './components/SearchResults/SearchResults';
 import Card from './components/Card/Card';
-import mockLyricData from './mock/mockLyricData';
-import MockSearchResultData from './mock/mockSearchResultData';
 import './App.css';
 
 function App() {
@@ -16,18 +14,19 @@ function App() {
   
   // * Sets lyrics state * currently mocked
   useEffect(() => {
-    setLyrics(mockLyricData());
+    setLyrics(456537);
   }, [lyrics]);
 
   // * Sets Search results state * currently mocked
   useEffect(() => {
-    const searchResults = MockSearchResultData().response.hits;
-    const searchResultsString = JSON.stringify(searchResults);
-    console.log(searchResultsString);
-    setSearchResults(searchResultsString);
-  }, [userInput]);
+    const fetchSearchResults = async () => {
+      const data = await Genius.search('Taylor Swift');
+      console.log('data received by App.js', data);
+  }
+    fetchSearchResults();
+  });
   
-  const handleSearch = (text) => {
+  function handleSearch(text) {
     setUserInput(text);
   }
 
@@ -42,21 +41,19 @@ function App() {
 
 
   return (
-    <div>
+     <div>
       <Card />
       <SearchBar onSearch={handleSearch}/>
       <div className="two-col">
         <div className="left">
-        <SearchResults results={searchResults}/>
+          
         </div>
         <div className="right">
-          <DisplayLyrics lyrics={lyrics}/>
+          
         </div>
       </div>
     </div>
-  )
-  
-  
+  )  
 }
 
 export default App;
