@@ -21,7 +21,7 @@ function App() {
   // * Uses Genius.search to return search Results
   // * Sets the state of searchResults to be passed into SearchResults.js
   // * Executes when userInput state is changed
-  //TODO: Should execute only when search button is pressed to reduce unneccessary API calls
+  //TODO: Should execute only when search button is pressed to reduce unnecessary API calls
   //TODO: Update might be handled already by handleSearch function
   useEffect(() => {
     const fetchSearchResults = async () => {
