@@ -16,8 +16,6 @@ const Genius = {
             
             // * fetching Genius API search results
             //! toggle this with mock variable
-            console.log(mockUrl);
-            console.log(options)
             fetch(mockUrl, options).then((response) => {
                 if (!response.ok) {
                     throw new Error('Failed to fetch data');
@@ -33,15 +31,10 @@ const Genius = {
             })
         })
     },
-        
-    // accepts an object notation: [searchResult].response.hits[i]
-    async returnId(selectedObject) {
-        const id = await selectedObject.result.id;
-        return id;
-    },
 
-    async getLyrics(id) {
+    /*async getLyrics(id) {
         const url = `https://genius-song-lyrics1.p.rapidapi.com/song/lyrics/?id=${id}&text_format=plain`;
+        const mockUrl = 'https://run.mocky.io/v3/89229194-4759-496f-95a5-d37b85a22c83'
         const options = {
             method: 'GET',
             headers: {
@@ -51,7 +44,7 @@ const Genius = {
         };
 
         try {
-            const response = await fetch(url, options);
+            const response = await fetch(mockUrl, options);
             const result = await response.text();
             const resultObject = JSON.parse(result);
             const lyrics = resultObject.lyrics.lyrics.body.plain;
@@ -60,6 +53,34 @@ const Genius = {
         } catch (error) {
             console.error(error);
         }
+    }*/
+
+    getLyrics(id) {
+        return new Promise ((resolve, reject) => {
+            const url = `https://genius-song-lyrics1.p.rapidapi.com/song/lyrics/?id=${id}&text_format=plain`;
+            const mockUrl = 'https://run.mocky.io/v3/89229194-4759-496f-95a5-d37b85a22c83'
+            const options = {
+                method: 'GET',
+                headers: {
+                    'X-RapidAPI-Key': '913baa68b2mshee77d60e97c2da8p182161jsne2d8a247ca25',
+                    'X-RapidAPI-Host': 'genius-song-lyrics1.p.rapidapi.com'
+                }
+            };
+            
+            fetch(mockUrl, options).then((response) => {
+                if (!response.ok) {
+                    throw new Error('Failed to fetch data');
+                } 
+                console.log('resolved', response);
+                return response.json();
+            }).then((data) => {
+                console.log(data);
+                resolve(data);
+            }).catch((err) => {
+                console.log('rejected', err);
+                reject(err);
+            })
+        });
     }
 }
 

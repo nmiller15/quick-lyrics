@@ -1,21 +1,28 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Genius from '../../utility/Genius';
 import Card from '../Card/Card';
   
   function SearchResults(props) {
-    const resultsObject = JSON.parse(props.results);
-    //console.log(typeof resultsObject[0]);
-    const resultsArray = Object.entries(resultsObject);
-    //console.log(typeof resultsArray);
 
-  
+    if (!props.searchResults) {
+      return;
+    }
+    console.log('Data received at SearchResults', props.searchResults);
+    const responseArray = props.searchResults.response.hits;
+    console.log('results array located', responseArray);
+    
+    function selectSong(id) {
+      console.log('button pressed, id is', id);
+      props.passId(id);
+    }
+      
     return (
-      <div>
-        {resultsArray.map((result, index) => {
-          return <Card index={index} key={index} result={result[1]} />
+        <div>
+        {responseArray.map((result, index) => {
+          return <Card index={index} key={index} result={result} handleButton={selectSong} />
         })}
-      </div>
-	  );
+        </div>
+     );
   }
   
   export default SearchResults;
