@@ -22,6 +22,7 @@ function App() {
   // * Sets the state of searchResults to be passed into SearchResults.js
   // * Executes when userInput state is changed
   //TODO: Should execute only when search button is pressed to reduce unnecessary API calls
+  //TODO: Something is causing userInput to rerender causing a second search execution
   //TODO: Update might be handled already by handleSearch function
   useEffect(() => {
     const fetchSearchResults = async () => {
@@ -79,7 +80,7 @@ function App() {
 
   return (
      <div>
-      <SearchBar onSearch={handleSearch}/>
+      <SearchBar handleSearch={handleSearch}/>
       <div className="two-col">
         <div className="left">
           {/* Only display SearchResults if defined */}
