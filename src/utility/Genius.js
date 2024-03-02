@@ -1,5 +1,10 @@
 const Genius = {
+    // * Method calls Search endpoint at Genius API and returns a promise
+    // * Takes user input as an argument
+    // * Returns a promise that resolves to a response object containing an array of 'hits'
     search(userInput) {
+
+        // * Constructs a promise, allowing for async `await` in App.js
         return new Promise((resolve, reject) => { 
 
             // * Add the search term, userInput into the URL to fetch from the API
@@ -14,7 +19,7 @@ const Genius = {
                 }
             };
             
-            // * fetching Genius API search results
+            // * fetches Genius API search results
             //! toggle this with mock variable
             fetch(mockUrl, options).then((response) => {
                 if (!response.ok) {
@@ -32,31 +37,16 @@ const Genius = {
         })
     },
 
-    /*async getLyrics(id) {
-        const url = `https://genius-song-lyrics1.p.rapidapi.com/song/lyrics/?id=${id}&text_format=plain`;
-        const mockUrl = 'https://run.mocky.io/v3/89229194-4759-496f-95a5-d37b85a22c83'
-        const options = {
-            method: 'GET',
-            headers: {
-                'X-RapidAPI-Key': '913baa68b2mshee77d60e97c2da8p182161jsne2d8a247ca25',
-                'X-RapidAPI-Host': 'genius-song-lyrics1.p.rapidapi.com'
-            }
-        };
-
-        try {
-            const response = await fetch(mockUrl, options);
-            const result = await response.text();
-            const resultObject = JSON.parse(result);
-            const lyrics = resultObject.lyrics.lyrics.body.plain;
-
-            return lyrics;
-        } catch (error) {
-            console.error(error);
-        }
-    }*/
-
+    // * Method calls Song Lyrics endpoint at Genius API
+    // * Takes song id as an argument
+    // * Returns a Promise that resolves to an object containing formatted lyrics
     getLyrics(id) {
+        
+        // * Constructs a promise allowing for async `await` in App.js
         return new Promise ((resolve, reject) => {
+            
+
+            // * add id into URL to fetch from the API 
             const url = `https://genius-song-lyrics1.p.rapidapi.com/song/lyrics/?id=${id}&text_format=plain`;
             const mockUrl = 'https://run.mocky.io/v3/89229194-4759-496f-95a5-d37b85a22c83'
             const options = {
@@ -66,7 +56,8 @@ const Genius = {
                     'X-RapidAPI-Host': 'genius-song-lyrics1.p.rapidapi.com'
                 }
             };
-            
+
+            // * fetches Genius API lyrics results
             fetch(mockUrl, options).then((response) => {
                 if (!response.ok) {
                     throw new Error('Failed to fetch data');
