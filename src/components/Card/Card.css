@@ -55,6 +55,7 @@ button:hover {
     border-radius: 15px;
     margin: 15px;
     background-color: var(--soft-purple);
+    overflow: contain;
 }
 
 .img-container {
@@ -67,6 +68,8 @@ button:hover {
 
 .text-container {
     margin-left: 15px;
+    width: 100%;
+    overflow: hidden;
 }
 
 .button-container {
