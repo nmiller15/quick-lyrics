@@ -41,9 +41,11 @@ function Card(props) {
 				<img src={imgSrc} alt={`${songTitle} by ${artist} song art`}/>
 			</div>
 			<div className="text-container">
-				<h3>{songTitle}</h3>
-				<p>{artist}</p>
-				<button onClick={handleClick}>Show Lyrics</button>
+				<h3 className="single-line">{songTitle}</h3>
+				<p className="single-line">{artist}</p>
+				<div className="button-container">
+					<button onClick={handleClick}>Show Lyrics</button>
+				</div>
 			</div>
 		</div>
 	);
