@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Genius from '../../utility/Genius';
 import Card from '../Card/Card';
+import './SearchResults.css';
   
   function SearchResults(props) {
     // * Props from App.js: `searchResults` object and `passId()` function
@@ -30,11 +31,11 @@ import Card from '../Card/Card';
 
       
     return (
-        <div>
-        {/* Iterates over response array assigning values to multiple cards */}
-        {responseArray.map((result, index) => {
-          return <Card index={index} key={index} result={result} handleButton={selectSong} />
-        })}
+        <div className="scroll-overflow">
+          {/* Iterates over response array assigning values to multiple cards */}
+          {responseArray.map((result, index) => {
+            return <Card index={index} key={index} result={result} handleButton={selectSong} />
+          })}
         </div>
      );
   }

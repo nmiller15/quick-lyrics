@@ -1,0 +1,7 @@
+/* TODO: Make left and right columns of the App independently scrollable */
+/* TODO: Restyle and reposition the scroll bar */
+
+.scroll-overflow {
+    height: 95vh;
+    overflow-y: scroll;
+}
