@@ -4,4 +4,10 @@
 .scroll-overflow {
     height: 95vh;
     overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.scroll-overflow::-webkit-scrollbar {
+    display: none;
 }
