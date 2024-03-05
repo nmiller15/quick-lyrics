@@ -28,7 +28,7 @@ import './SearchBar.css';
     }
 
 
-    // TODO: Add labels and ids to form fields
+  
     return (
     <form className="form-container" onSubmit={handleSubmit}>
         <label for="input-field" className="no-display">Search for a song</label>
