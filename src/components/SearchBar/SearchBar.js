@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import './SearchBar.css';
   
   function SearchBar({ handleSearch }) {
     // * handleSearch() received from App.js
@@ -29,9 +30,10 @@ import React, {useState} from 'react';
 
     // TODO: Add labels and ids to form fields
     return (
-    <form onSubmit={handleSubmit}>
-        <input value={userText} type="text" onChange={handleChange} />
-        <input type="submit"/>
+    <form className="form-container" onSubmit={handleSubmit}>
+        <label for="input-field" className="no-display">Search for a song</label>
+        <input id="input-field" className="input-field" placeholder="Search for a song" value={userText} type="text" onChange={handleChange} />
+        <input className="submit-button" type="submit"/>
 	  </form>
 	);
   }

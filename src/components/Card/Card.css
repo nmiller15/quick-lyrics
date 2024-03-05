@@ -45,6 +45,7 @@ button:hover {
     background-color: var(--light-blue);
     box-shadow: -2px 2px 3px black;
     transition: background-color 200ms ease-in-out;
+    cursor: pointer;
 }
 
 .card {
