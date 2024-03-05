@@ -15,7 +15,7 @@ import './SearchResults.css';
 
     // * Locate the results array within the searchResults object
     console.log('Data received at SearchResults', props.searchResults);
-    const responseArray = props.searchResults.response.hits;
+    const responseArray = props.searchResults.hits;
     console.log('results array located', responseArray);
     
 

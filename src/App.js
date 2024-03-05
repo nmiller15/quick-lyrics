@@ -1,4 +1,4 @@
-import React, {useState, useEffect, Suspense} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import Genius from './utility/Genius';
 import DisplayLyrics from './components/DisplayLyrics/DisplayLyrics';
 import SearchBar from './components/SearchBar/SearchBar';
@@ -12,29 +12,32 @@ function App() {
   const [songId, setSongId] = useState('');
   const [lyrics, setLyrics] = useState('');
   const [searchResults, setSearchResults] = useState();
+  const hasPageBeenRendered = useRef(false);
   
 
 
 
-  //! Mocked
   // * Receives userInput, state updated by SearchBar
   // * Uses Genius.search to return search Results
   // * Sets the state of searchResults to be passed into SearchResults.js
   // * Executes when userInput state is changed
   useEffect(() => {
+    if (!userInput) {
+      return;
+    }
     const fetchSearchResults = async () => {
       console.log('search executed');
-      const data = await Genius.search('Taylor Swift');
+      const data = await Genius.search(userInput);
       console.log('data received by App.js', data);
       setSearchResults(data);
-  }
+    }
     fetchSearchResults();
+    
   }, [userInput]);
 
 
 
 
-  //! Mocked
   // * Receives songId, state updated by SearchResults
   // * Uses Genius.getLyrics to return lyric data
   // * Sets the state of lyrics to be passed into DisplayLyrics.js
@@ -83,7 +86,7 @@ function App() {
           {/* Only display SearchResults if defined */}
           {searchResults 
             ? <SearchResults searchResults={searchResults} passId={selectSong}/>
-            : <p>Loading...</p>
+            : <p>Search for a song!</p>
           }
         </div>
         <div className="right">

@@ -14,14 +14,14 @@ const Genius = {
             const options = {
                 method: 'GET',
                 headers: {
-                    'X-RapidAPI-Key': '913baa68b2mshee77d60e97c2da8p182161jsne2d8a247ca25',
+                    'X-RapidAPI-Key': 'e78f998381mshb646bf7302bb1d8p18dbaajsnae17cc2a5bc6',
                     'X-RapidAPI-Host': 'genius-song-lyrics1.p.rapidapi.com'
                 }
             };
             
             // * fetches Genius API search results
             //! toggle this with mock variable
-            fetch(mockUrl, options).then((response) => {
+            fetch(url, options).then((response) => {
                 if (!response.ok) {
                     throw new Error('Failed to fetch data');
                 }
@@ -52,13 +52,13 @@ const Genius = {
             const options = {
                 method: 'GET',
                 headers: {
-                    'X-RapidAPI-Key': '913baa68b2mshee77d60e97c2da8p182161jsne2d8a247ca25',
+                    'X-RapidAPI-Key': 'e78f998381mshb646bf7302bb1d8p18dbaajsnae17cc2a5bc6',
                     'X-RapidAPI-Host': 'genius-song-lyrics1.p.rapidapi.com'
                 }
             };
 
             // * fetches Genius API lyrics results
-            fetch(mockUrl, options).then((response) => {
+            fetch(url, options).then((response) => {
                 if (!response.ok) {
                     throw new Error('Failed to fetch data');
                 } 

@@ -13,7 +13,7 @@ import './DisplayLyrics.css';
 
     // * Locates lyrics in plain text
     console.log('lyrics received by DisplayLyrics.js', props.lyrics);
-    const lyrics = props.lyrics.response.lyrics.lyrics.body.plain;
+    const lyrics = props.lyrics.lyrics.lyrics.body.plain;
     console.log('lyrics located', lyrics);
 
 
@@ -25,8 +25,8 @@ import './DisplayLyrics.css';
 
 
     // * Locates song information in lyrics object
-    const songTitle = props.lyrics.response.lyrics.trackingData.Title;
-    const artist = props.lyrics.response.lyrics.trackingData['Primary Artist'];
+    const songTitle = props.lyrics.lyrics.tracking_data.title;
+    const artist = props.lyrics.lyrics.tracking_data.primary_artist;
 
 
     
